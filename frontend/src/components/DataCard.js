@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { fetchAndGetLists, fetchUser, getFormatedDate } from "./utils";
+import { fetchAndGetLists, getFormatedDate } from "./utils";
 import { GlobalContext } from "../App";
 // MUI imports
 import Toolbar from "@mui/material/Toolbar";
@@ -14,18 +14,8 @@ import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import {
 	DataGrid,
-	GridToolbarContainer,
-	GridToolbarExport,
-	gridClasses,
+    GridToolbar,
 } from "@mui/x-data-grid";
-
-function CustomToolbar() {
-	return (
-		<GridToolbarContainer className={gridClasses.toolbarContainer}>
-			<GridToolbarExport />
-		</GridToolbarContainer>
-	);
-}
 
 function DataCard({ title, rows, columns, ediMode }) {
 	const [global, setGlobal] = useContext(GlobalContext);
@@ -173,7 +163,7 @@ function DataCard({ title, rows, columns, ediMode }) {
 						rowsPerPageOptions={[5, 10, 20, 50, 100]}
 						pagination
 						components={{
-							Toolbar: CustomToolbar,
+							Toolbar: GridToolbar,
 						}}
 						onCellDoubleClick={handleCellDoubleClick}
 					/>
