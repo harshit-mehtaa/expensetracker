@@ -1,11 +1,10 @@
-import { ContentCopySharp } from "@mui/icons-material";
-import { cardHeaderClasses } from "@mui/material";
 import { useState, useEffect, useContext } from "react";
 // custom imports
 import { GlobalContext } from "../App";
 import { fetchUser } from "../components/utils";
 
 function useApiCall(endpoint, method, body, headers) {
+    // eslint-disable-next-line
 	const [global, setGlobal] = useContext(GlobalContext);
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState(null);
@@ -59,6 +58,7 @@ function useApiCall(endpoint, method, body, headers) {
 		};
 
 		fetchData();
+        // eslint-disable-next-line
 	}, [endpoint, method, body, headers]);
 
 	return [loading, data, status];

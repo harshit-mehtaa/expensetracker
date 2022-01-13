@@ -23,7 +23,9 @@ function AddExpense() {
 		},
 	};
     const [mode, setMode] = useState(undefined);
+    // eslint-disable-next-line
     const [global, setGlobal] = useContext(GlobalContext);
+    // eslint-disable-next-line
 	const [expenseDetails, setExpenseDetails] = useState(initialState);
 
 	const handleClickOpen = async () => {

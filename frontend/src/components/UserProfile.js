@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import useApiCall from "../hooks/useApiCall";
 // Custom Components
 import { GlobalContext } from "../App";
-import { getFormatedDate, fetchAndGetLists } from './utils';
+import { getFormatedDate } from './utils';
 import Loading from "./Loading";
 import SnackbarAlert from "./SnackbarAlert";
 // MUI imports
@@ -33,6 +33,7 @@ import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import InputAdornment from "@mui/material/InputAdornment";
 
 function UserProfile() {
+    // eslint-disable-next-line
 	const [global, setGlobal] = useContext(GlobalContext);
 	const [loading, userProfile, status] = useApiCall(
 		`/api/users/full/${global.user.id}`

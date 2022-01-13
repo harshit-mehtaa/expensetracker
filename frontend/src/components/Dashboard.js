@@ -74,6 +74,7 @@ function getData(data) {
 
 function Dashboard() {
 	// Monthly data
+    // eslint-disable-next-line
 	const [loadingM, dataM, statusM] = useApiCall("/api/expenses/by-month");
 	const [chartTypeMonth, setChartTypeMonth] = React.useState("line");
 	const monthlyLabels = !loadingM ? getLabels(dataM) : null;
@@ -110,6 +111,7 @@ function Dashboard() {
 	};
 
 	// Yearly data
+    // eslint-disable-next-line
 	const [loadingY, dataY, statusY] = useApiCall("/api/expenses/by-year");
 	const [chartTypeYear, setChartTypeYear] = React.useState("line");
 	const yearlyLabels = !loadingY ? getLabels(dataY) : null;
@@ -157,6 +159,7 @@ function Dashboard() {
 	};
 
 	// User data
+    // eslint-disable-next-line
 	const [loadingU, dataU, statusU] = useApiCall("/api/expenses/by-user");
 	const [chartTypeUser, setChartTypeUser] = React.useState("bar");
 	const userLabels = !loadingU ? getLabels(dataU) : null;
@@ -206,6 +209,7 @@ function Dashboard() {
 	};
 
 	// Category data
+    // eslint-disable-next-line
 	const [loadingC, dataC, statusC] = useApiCall("/api/expenses/by-category");
 	const [chartTypeCategory, setChartTypeCategory] =
 		React.useState("bar");

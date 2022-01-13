@@ -28,6 +28,7 @@ const loginUser = async (credentials) => {
 };
 
 function Login() {
+    // eslint-disable-next-line
 	const [global, setGlobal] = useContext(GlobalContext);
 	const [username, setUsername] = React.useState("");
 	const [password, setPassword] = React.useState("");
