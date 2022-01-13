@@ -417,6 +417,8 @@ function ExpenseForm({ expense }) {
 								}));
 							}}
 							variant="standard"
+                            multiline
+                            rows={2}
 						/>
 					</Stack>
 				</LocalizationProvider>
