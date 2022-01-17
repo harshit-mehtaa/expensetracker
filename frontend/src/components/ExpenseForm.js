@@ -54,7 +54,12 @@ function ExpenseForm({ expense }) {
 		) {
 			alert("Details should not be empty");
 			return;
-		} else {
+		} else if (
+            expenseDetails.expense.user.name.toLowerCase() === 'cash user' && 
+            expenseDetails.expense.mode.name.toLowerCase() !== 'cash') {
+                alert("Cash User can only pay in Cash");
+                return;
+        } else {
 			// console.log(expenseDetails);
 			const user = await fetchUser(
 				`/api/users/?name=${expenseDetails.expense.user.name}`
@@ -153,7 +158,12 @@ function ExpenseForm({ expense }) {
 		) {
 			alert("Details should not be empty");
 			return;
-		} else {
+		} else if (
+            expenseDetails.expense.user.name.toLowerCase() === 'cash user' && 
+            expenseDetails.expense.mode.name.toLowerCase() !== 'cash') {
+                alert("Cash User can only pay in Cash");
+                return;
+        } else {
             console.log(expenseDetails);
 			const user = await fetchUser(
 				`/api/users/?name=${expenseDetails.expense.user.name}`
