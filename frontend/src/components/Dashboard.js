@@ -101,7 +101,7 @@ function Dashboard() {
 			},
 			title: {
 				display: true,
-				text: "Monthly Expenses",
+				text: `Monthly Expenses for year ${new Date().getFullYear()}`,
 			},
 		},
 	};
