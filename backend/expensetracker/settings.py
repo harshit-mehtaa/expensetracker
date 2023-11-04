@@ -100,8 +100,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'expensetracker',
-        'USER': 'expensetracker',
-        'PASSWORD': 'expensetracker',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'POST': '5432',
     }
