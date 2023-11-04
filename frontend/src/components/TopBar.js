@@ -37,13 +37,13 @@ function stringToColor(string) {
 }
 
 function stringAvatar(name) {
+	var childrenName = name.includes(" ") ? `${name.split(" ")[0][0].toUpperCase()}${name.split(" ")[1][0].toUpperCase()}` : name[0].toUpperCase()
+
 	return {
 		sx: {
 			bgcolor: stringToColor(name),
 		},
-		children: `${name.split(" ")[0][0].toUpperCase()}${name
-			.split(" ")[1][0]
-			.toUpperCase()}`,
+		children: childrenName,
 	};
 }
 
