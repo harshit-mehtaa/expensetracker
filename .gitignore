@@ -135,3 +135,6 @@ dmypy.json
 frontend/bkp/
 frontend/node_modules/
 frontend/package-lock.json
+
+# Custom
+.passwords.txt
