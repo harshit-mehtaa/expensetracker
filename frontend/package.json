@@ -21,8 +21,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "webpack serve  --mode development",
+    "dev": "react-scripts --openssl-legacy-provider start",
+    "start": "webpack serve  --openssl-legacy-provider --mode development",
     "build": "webpack build --mode production",
     "stats": "webpack --mode development --json > stats.json"
   },
