@@ -3,7 +3,7 @@
 ./build_docker_image.sh
 ```
 
-# Run application
+# Run application as a Container
 ```bash
 docker run -d \
   --name frontend \

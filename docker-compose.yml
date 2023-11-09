@@ -1,0 +1,89 @@
+# version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres-container-compose
+    env_file:
+      - db/.env.postgres
+    networks:
+      - postgres-pgadmin
+      - backend-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER}"]
+      # test: pg_isready
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      # start_period: 10s
+  
+  postgres-ui:
+    image: dpage/pgadmin4
+    container_name: pgadmin-compose
+    env_file:
+      - db/.env.pgadmin
+    networks:
+      - postgres-pgadmin
+    ports:
+      - 82:80 
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+  
+  backend:
+    image: expensetracker/backend:latest
+    build: 
+      context: backend/.
+      dockerfile: Dockerfile
+    container_name: backend-compose
+    env_file:
+      - backend/.env.docker-compose
+    networks:
+      - backend-postgres
+      - frontend-backend
+    ports:
+      - 8000:8000
+    depends_on:
+      postgres:
+        condition: service_healthy
+        restart: true
+    # healthcheck:
+    #   test: ["CMD-SHELL", "arg"]
+    #   interval: 10s
+    #   timeout: 10s
+    #   retries: 5
+    #   start_period: 10s
+  
+  frontend:
+    image: expensetracker/frontend:latest
+    build: 
+      context: frontend/.
+      dockerfile: Dockerfile
+    container_name: frontend-compose
+    ports:
+      - 3000:3000
+    networks:
+      - frontend-backend
+    depends_on:
+      # backend:
+      #   condition: service_healthy
+      #   restart: true
+      postgres:
+        condition: service_healthy
+        restart: true
+
+networks:
+  postgres-pgadmin: 
+  backend-postgres: 
+  frontend-backend: 
+
+volumes:
+  pgdata: 
+  pgadmin-data: 
