@@ -6,7 +6,7 @@ Expense Tracker
 ## Pre-Requisites
 
 - ### Environment variable
-    
+    Please check individual ```README.md``` files under specific app directories
     - #### Postgres DB
         Create ```.env.postgres``` file under ```db/``` directory with the below mentioned properties
         - POSTGRES_USER
@@ -20,12 +20,16 @@ Expense Tracker
     
     - #### Backend
         Create ```.env.docker-compose``` file under ```backend/``` directory with the below mentioned properties
-        - DATABASE_NAME=<value used in .env.postgres for POSTGRES_DB>
-        - DATABASE_USER=<value used in .env.postgres for POSTGRES_USER>
-        - DATABASE_PASSWORD=<value used in .env.postgres for POSTGRES_PASSWORD>
-        - DATABASE_HOST=postgres
-        - DATABASE_PORT=5432
-        - SECRET_KEY=<secret key>
+        - DATABASE_NAME
+        - DATABASE_USER
+        - DATABASE_PASSWORDPOSTGRES_PASSWORD>
+        - DATABASE_HOST
+        - DATABASE_PORT
+        - SECRET_KEY
+    - #### Frontend
+        Create ```.env.docker-compose``` file under ```frontend/``` directory with the below mentioned properties
+        - BACKED_HOST
+        - BACKEND_PORT
 
 ### Start application
 ```bash

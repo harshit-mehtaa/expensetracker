@@ -32,7 +32,7 @@
 
 **_Note:_** If the backend app is running as a container (using docker/docker compose), then you need to login to the conatiner to execute the below commands
 ```bash
-docker exec -it <backend container name/id>
+docker exec -it <backend container name/id> /bin/sh
 ```
 - Create migration files
     ```bash
