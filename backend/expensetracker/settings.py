@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os.path
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9(0+b)3t$r=q2r_b-^8d6ak2ksju-83k6*tb%zs$skn3^yaqd7'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -61,7 +65,7 @@ REST_FRAMEWORK = {
     # 'DEFAULT_AUTHENTICATION_CLASSES': ['custom_auth.authentication.ExpiringTokenAuthentication'],
 }
 
-TOKEN_EXPIRY_TIME = 60 * 60 * 24 * 1  # 1 days
+TOKEN_EXPIRY_TIME = 60 * 60 * 24 * 1  # 1 day
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -99,11 +103,11 @@ WSGI_APPLICATION = 'expensetracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'expensetracker',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'POST': '5432',
+        'NAME': os.getenv("DATABASE_NAME"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("DATABASE_HOST"),
+        'POST': os.getenv("DATABASE_PORT"),
     }
 }
 

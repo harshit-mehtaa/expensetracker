@@ -156,7 +156,8 @@ class UserDetail(models.Model):
     dob = models.DateField(blank=False)
     contact = models.OneToOneField(UserContact, on_delete=models.CASCADE, null=True, blank=True)
     kyc = models.OneToOneField(UserKyc, on_delete=models.CASCADE, null=True, blank=True)
-    address = models.OneToOneField(UserAddress, on_delete=models.CASCADE, null=True, blank=True)
+    # address = models.OneToOneField(UserAddress, on_delete=models.CASCADE, null=True, blank=True)
+    address = models.ForeignKey(UserAddress, on_delete=models.CASCADE, null=True, blank=True)
 
     REQUIRED_FIELDS = ['gender', 'dob', 'contact', 'kyc', 'address', ]
 
