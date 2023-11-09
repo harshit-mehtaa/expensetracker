@@ -67,6 +67,8 @@ services:
       context: frontend/.
       dockerfile: Dockerfile
     container_name: frontend-compose
+    env_file:
+      - frontend/.env.docker-compose
     ports:
       - 3000:3000
     networks:
