@@ -17,14 +17,14 @@
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.0",
     "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.2.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
     "dev": "react-scripts --openssl-legacy-provider start",
-    "start": "webpack serve  --openssl-legacy-provider --mode development",
-    "build": "webpack build --mode production",
-    "stats": "webpack --mode development --json > stats.json"
+    "build": "react-scripts --openssl-legacy-provider build",
+    "prod": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
