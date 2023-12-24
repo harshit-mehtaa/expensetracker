@@ -27,9 +27,9 @@ import Toolbar from "@mui/material/Toolbar";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import InputAdornment from "@mui/material/InputAdornment";
 
 function UserProfile() {
@@ -110,7 +110,7 @@ function UserProfile() {
 												sx={{ m: 1, width: "29ch" }}
 											/>
 											{/* <FormLabel>DOB</FormLabel> */}
-											<DesktopDatePicker
+											<DatePicker
 												label="Date of Birth"
 												inputFormat="dd/MM/yyyy"
 												value={

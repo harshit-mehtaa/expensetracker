@@ -9,9 +9,9 @@ import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import {
 	DataGrid,
     GridToolbar,
@@ -24,16 +24,17 @@ function DataCard({ title, rows, columns, ediMode }) {
 		new Date(new Date().getFullYear(), new Date().getMonth(), 1)
 	);
 	const [endDate, setEndDate] = React.useState(
-		new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
+		// new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0)
+		new Date()
 	);
 
 	const handleCellDoubleClick = async (id) => {
 		const usersList = await fetchAndGetLists("/api/users/GetNames");
-        console.log("id.row", id.row);
+        // console.log("id.row", id.row);
         // const userObj = await fetchUser(`/api/users/${id.row.user}`);
         // console.log("userObj:", userObj);
         const user = usersList[usersList.find((u) => u.name === id.row.user).id];
-        console.log(user);
+        // console.log(user);
 
 		const categoriesList = await fetchAndGetLists(
 			"/api/expenses/GetCategories"
@@ -113,7 +114,7 @@ function DataCard({ title, rows, columns, ediMode }) {
 								}}
 							>
 								<Box sx={{ mr: 3 }}>
-									<DesktopDatePicker
+									<DatePicker
 										label="Start Date"
 										inputFormat="dd/MM/yyyy"
 										value={startDate}
@@ -126,7 +127,7 @@ function DataCard({ title, rows, columns, ediMode }) {
 									/>
 								</Box>
 								<Box sx={{ mr: 3 }}>
-									<DesktopDatePicker
+									<DatePicker
 										label="End Date"
 										inputFormat="dd/MM/yyyy"
 										value={endDate}

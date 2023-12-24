@@ -18,9 +18,9 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 
 function ExpenseForm({ expense }) {
 	const [global, setGlobal] = useContext(GlobalContext);
@@ -293,7 +293,7 @@ function ExpenseForm({ expense }) {
 				<DialogContentText mb={3} />
 				<LocalizationProvider dateAdapter={AdapterDateFns}>
 					<Stack spacing={3}>
-						<DesktopDatePicker
+						<DatePicker
 							label="Expense Date"
 							inputFormat="dd/MM/yyyy"
 							value={expenseDetails.expense.date}
