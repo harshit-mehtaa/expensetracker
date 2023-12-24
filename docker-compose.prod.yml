@@ -62,7 +62,7 @@ services:
     #   start_period: 10s
   
   frontend:
-    image: expensetracker/frontend:dev
+    image: expensetracker/frontend:latest
     build: 
       context: frontend/.
       dockerfile: Dockerfile
