@@ -46,8 +46,8 @@ function UserProfile() {
     }, [userProfile])
 
     const handleUpdate = () => {
-        console.log("handleUpdate");
-        console.log("user:", user);
+        // console.log("handleUpdate");
+        // console.log("user:", user);
     };
 
 	return (
